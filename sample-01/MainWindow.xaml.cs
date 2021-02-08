@@ -14,22 +14,22 @@ namespace sample_01
             InitializeComponent();
         }
 
-		private void OnPaintSurface(object sender, SKPaintSurfaceEventArgs e)
-		{
-			// the canvas and properties
-			var canvas = e.Surface.Canvas;
-			var width = e.Info.Width;
-			var height = e.Info.Height;
+        private void OnPaintSurface(object sender, SKPaintSurfaceEventArgs e)
+        {
+            // the canvas and properties
+            var canvas = e.Surface.Canvas;
+            var width = e.Info.Width;
+            var height = e.Info.Height;
 
-			// get the screen density for scaling
-			var scale = (float)PresentationSource.FromVisual(this).CompositionTarget.TransformToDevice.M11;
-			var scaledSize = new SKSize(e.Info.Width / scale, e.Info.Height / scale);
+            // get the screen density for scaling
+            var scale = (float)PresentationSource.FromVisual(this).CompositionTarget.TransformToDevice.M11;
+            var scaledSize = new SKSize(e.Info.Width / scale, e.Info.Height / scale);
 
-			// handle the device screen density
-			canvas.Scale(scale);
+            // handle the device screen density
+            canvas.Scale(scale);
 
-			// make sure the canvas is blank
-			canvas.Clear(SKColors.White);
+            // make sure the canvas is blank
+            canvas.Clear(SKColors.White);
 
             // draw some text
             SKTypeface font = SKTypeface.FromFamilyName("Arial", SKFontStyle.Normal);
@@ -50,5 +50,5 @@ namespace sample_01
 
             canvas.DrawText("Hello World", center, paintText);
         }
-	}
+    }
 }
